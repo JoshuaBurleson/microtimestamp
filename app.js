@@ -32,7 +32,7 @@ var timechange = app.get(exp,function(req, res){
         //if url is a UNIX timecode
         var date = new Date();
         date.setTime(Number(cleanedURL)*1000);
-        var natural = months[date.getMonth()]+' '+date.getDay()+', '+date.getFullYear();
+        var natural = months[date.getMonth()]+' '+date.getDate()+', '+date.getFullYear();
         returnObj.unix = cleanedURL;
         returnObj.natural = natural;
         res.end(JSON.stringify(returnObj));
