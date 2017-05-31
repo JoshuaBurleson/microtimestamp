@@ -2,10 +2,20 @@ const express = require('express');
 const qustr = require('querystring');
 
 var app = express();
+var fs = require('fs');
 var port = process.env.PORT || 3000;
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var exp = /./g;
 //console.log(port);
+
+app.get('/',function(req,res){
+    res.writeHead(200, {'Content-Type':'text/html'});
+    fs.readFile('./index.html',function(err, data){
+        if(err){throw err}
+        res.write(data);
+    })
+    res.end()
+}).listen(port);
 
 app.get(exp,function(req, res){
     console.log('running')
