@@ -5,8 +5,10 @@ var app = express();
 var port = process.argv[2] || 3000;
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var exp = /./g;
+console.log(port);
 
 app.get(exp,function(req, res){
+    console.log('running')
     var returnObj = {unix : null, natural : null}
     //remove % notation and leading / from url
     var cleanedURL = qustr.unescape(req.url.slice(1));
