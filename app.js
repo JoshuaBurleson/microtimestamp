@@ -5,7 +5,7 @@ var app = express();
 var port = process.argv[2] || 3000;
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var exp = /./g;
-console.log(port);
+//console.log(port);
 
 app.get(exp,function(req, res){
     console.log('running')
