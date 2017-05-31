@@ -8,16 +8,16 @@ var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 var exp = /./g;
 //console.log(port);
 
-app.get('/',function(req,res){
+var index = app.get('/',function(req,res){
     res.writeHead(200, {'Content-Type':'text/html'});
     fs.readFile('./index.html',function(err, data){
         if(err){throw err}
         res.write(data);
     })
     res.end()
-}).listen(port);
+});
 
-app.get(exp,function(req, res){
+var timechange = app.get(exp,function(req, res){
     console.log('running')
     var returnObj = {unix : null, natural : null}
     //remove % notation and leading / from url
@@ -41,4 +41,5 @@ app.get(exp,function(req, res){
     returnObj.natural = cleanedURL;
     returnObj.unix = date.getTime()/1000;
     res.end(JSON.stringify(returnObj));
-}).listen(port);
+});
+index, timechange.listen(port);
