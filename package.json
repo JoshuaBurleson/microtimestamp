@@ -12,8 +12,13 @@
   },
   "author": "Joshua Burleson",
   "license": "MIT",
-  "description": "",
   "dependencies": {
     "express": "^4.15.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/JoshuaBurleson/microtimestamp/issues"
+  },
+  "homepage": "https://github.com/JoshuaBurleson/microtimestamp#readme",
+  "devDependencies": {},
+  "description": ""
 }
