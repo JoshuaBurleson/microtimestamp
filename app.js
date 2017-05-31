@@ -2,7 +2,7 @@ const express = require('express');
 const qustr = require('querystring');
 
 var app = express();
-var port = process.argv[2] || 3000;
+var port = process.env.PORT || 3000;
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var exp = /./g;
 //console.log(port);
