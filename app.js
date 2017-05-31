@@ -8,7 +8,7 @@ var exp = /./g;
 
 app.get(exp,function(req, res){
     var returnObj = {unix : null, natural : null}
-    //remove % and leading / from url
+    //remove % notation and leading / from url
     var cleanedURL = qustr.unescape(req.url.slice(1));
     //if url cannot be parsed by Date
     if(String(Date.parse(cleanedURL)) == 'NaN'){
