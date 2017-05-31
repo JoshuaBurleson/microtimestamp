@@ -2,23 +2,14 @@ const express = require('express');
 const qustr = require('querystring');
 
 var app = express();
-var fs = require('fs');
+
+app.use(require('./routes/index.js'));
+
 var port = process.env.PORT || 3000;
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var exp = /./g;
-//console.log(port);
 
-var index = app.get('/',function(req,res){
-    res.writeHead(200, {'Content-Type':'text/html'});
-    fs.readFile('./index.html',function(err, data){
-        if(err){throw err}
-        res.write(data);
-        res.end();
-    });
-    
-});
-
-var timechange = app.get(exp,function(req, res){
+var server = app.get(exp,function(req, res){
     console.log('running')
     var returnObj = {unix : null, natural : null}
     //remove % notation and leading / from url
@@ -43,4 +34,4 @@ var timechange = app.get(exp,function(req, res){
     returnObj.unix = date.getTime()/1000;
     res.end(JSON.stringify(returnObj));
 });
-index, timechange.listen(port);
+server.listen(port);
