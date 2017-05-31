@@ -23,8 +23,8 @@ app.get(exp,function(req, res){
         returnObj.unix = cleanedURL;
         returnObj.natural = natural;
         res.end(JSON.stringify(returnObj));
-        
     };
+    //if in date format
     var date = new Date(cleanedURL);
     returnObj.natural = cleanedURL;
     returnObj.unix = date.getTime()/1000;
